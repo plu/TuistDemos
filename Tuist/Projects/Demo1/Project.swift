@@ -1,6 +1,6 @@
 import ProjectDescription
 
-let project = Project(
+let demo1 = Project(
     name: "Demo1",
     targets: [
         .target(
