@@ -48,29 +48,3 @@ It might take a while if the cache is empty
 `FirebaseCore` is not a valid configured external dependency
 Consider creating an issue using the following link: https://github.com/tuist/tuist/issues/new/choose
 ```
-
-## Demo2
-
-```console
-$ tuist install
-$ tuist generate Demo2App --no-open --no-binary-cache
-$ tuist run --clean Demo2App
-Build Succeeded
-Running executable Demo2App
-"App works"
-```
-
-All good... now let's try with cache:
-
-```console
-$ tuist cache
-$ tuist generate Demo2App --no-open --binary-cache
-$ tuist run --clean Demo2App
-Build Succeeded
-Running executable Demo2App
-AWSClientRuntime/TuistBundle+AWSClientRuntime.swift:48: Fatal error: unable to find bundle named aws-sdk-swift_AWSClientRuntime
-The '/Users/johannes.plunien/Library/Developer/Xcode/DerivedData/TuistDemos-fpuxcnysngtonxcoqtrkpwgkoijh/Build/Products/Debug/Demo2App' was interrupted with a signal 5 and message:
-AWSClientRuntime/TuistBundle+AWSClientRuntime.swift:48: Fatal error: unable to find bundle named aws-sdk-swift_AWSClientRuntime
-
-Consider creating an issue using the following link: https://github.com/tuist/tuist/issues/new/choose
-```

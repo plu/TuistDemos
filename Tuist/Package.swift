@@ -12,9 +12,6 @@ import PackageDescription
 let package = Package(
     name: "TuistDemos",
     dependencies: [
-        .package(url: "https://github.com/awslabs/aws-sdk-swift", from: "1.0.50"),
-        .package(url: "https://github.com/firebase/firebase-ios-sdk.git", exact: "11.5.0"),
-        .package(url: "https://github.com/swift-server/swift-openapi-vapor", from: "1.0.1"),
-        .package(url: "https://github.com/vapor/jwt-kit", from: "5.1.0")
+        .package(url: "https://github.com/firebase/firebase-ios-sdk.git", exact: "11.5.0")
     ]
 )
