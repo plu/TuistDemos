@@ -12,8 +12,10 @@ let demo1 = Project(
                 .glob(.relativeToRoot("Demo1/Framework/Sources/**"))
             ],
             dependencies: [
-                //.external(name: "FirebaseCore"),
-                .external(name: "FirebaseCrashlytics")
+                .external(name: "FirebaseCore"),
+                .external(name: "FirebaseCrashlytics"),
+                .external(name: "FirebaseDynamicLinks"),
+                .external(name: "FirebasePerformance")
             ]
         )
     ]

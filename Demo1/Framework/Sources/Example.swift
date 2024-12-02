@@ -1,2 +1,4 @@
 import FirebaseCore
 import FirebaseCrashlytics
+import FirebaseDynamicLinks
+import FirebasePerformance

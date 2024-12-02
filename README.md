@@ -15,36 +15,31 @@ $ tuist inspect implicit-imports
 Loading and constructing the graph
 It might take a while if the cache is empty
 The following implicit dependencies were found:
- - Demo1Framework implicitly depends on: FirebaseCore
-Consider creating an issue using the following link: https://github.com/tuist/tuist/issues/new/choose
+ - Demo1Framework implicitly depends on: FirebasePerformance, FirebaseDynamicLinks
+ - Consider creating an issue using the following link: https://github.com/tuist/tuist/issues/new/choose
 ```
 
-Now let's add `FirebaseCore` as a dependency to fix the missing implicit import:
+But both are listed as external dependencies:
 
-```console
-$ sed -i '' -e 's@//@@' Tuist/Projects/Demo1/Project.swift
-```
-
-```diff
-diff --git a/Tuist/Projects/Demo1/Project.swift b/Tuist/Projects/Demo1/Project.swift
-index f4ec373..1c1018b 100644
---- a/Tuist/Projects/Demo1/Project.swift
-+++ b/Tuist/Projects/Demo1/Project.swift
-@@ -12,7 +12,7 @@ let project = Project(
-                 .glob(.relativeToRoot("Demo1/Framework/Sources/**"))
-             ],
-             dependencies: [
--                //.external(name: "FirebaseCore"),
-+                .external(name: "FirebaseCore"),
-                 .external(name: "FirebaseCrashlytics")
-             ]
-         )
-```
-
-```console
-$ tuist generate Demo1Framework --no-open
-Loading and constructing the graph
-It might take a while if the cache is empty
-`FirebaseCore` is not a valid configured external dependency
-Consider creating an issue using the following link: https://github.com/tuist/tuist/issues/new/choose
+```swift
+let demo1 = Project(
+    name: "Demo1",
+    targets: [
+        .target(
+            name: "Demo1Framework",
+            destinations: .iOS,
+            product: .framework,
+            bundleId: "com.github.plu.Demo1Framework",
+            sources: [
+                .glob(.relativeToRoot("Demo1/Framework/Sources/**"))
+            ],
+            dependencies: [
+                .external(name: "FirebaseCore"),
+                .external(name: "FirebaseCrashlytics"),
+                .external(name: "FirebaseDynamicLinks"),
+                .external(name: "FirebasePerformance")
+            ]
+        )
+    ]
+)
 ```
